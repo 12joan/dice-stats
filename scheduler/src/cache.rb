@@ -6,6 +6,7 @@ class Cache
   end
 
   def ==(other)
-    @id == other.id
+    return false if not other.is_a?(Cache) 
+    return @id == other.id
   end
 end
