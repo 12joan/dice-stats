@@ -5,17 +5,30 @@ require_relative "caching_roller"
 require_relative "distribution"
 require_relative "roller"
 
-dice_count = 10
-dice_sides = 6
-target = 50
+module DiceStats
+  def self.distribution_for(dice_count, dice_sides, cache_results = true)
+    data = roll(dice_count, dice_sides, cache_results)
+    Distribution.new(data)
+  end
 
-cache_set = CacheDb.cache_set(Cache, CacheSet)
-roller = CachingRoller.new(Roller, cache_set)
+  def self.roll(dice_count, dice_sides, cache_results = true)
+    results = roller.roll(dice_count, dice_sides)
 
-results = roller.roll(dice_count, dice_sides)
-distribution = Distribution.new(results)
+    if cache_results then
+      cache = Cache.new( [dice_count, dice_sides], results )
+      CacheDb.save_cache cache, Cache
+    end
 
-cache = Cache.new( [dice_count, dice_sides], results )
-CacheDb.save_cache cache, Cache
+    return results
+  end
 
-puts distribution.probability_of(target)
+  private
+
+  def self.roller
+    CachingRoller.new(Roller, cache_set)
+  end
+
+  def self.cache_set
+    CacheDb.cache_set(Cache, CacheSet)
+  end
+end
