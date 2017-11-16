@@ -19,4 +19,9 @@ RSpec.describe Distribution do
     subject { distribution.probability_of(4) }
     it { is_expected.to eq(0.046875) }
   end
+
+  describe '#probability' do
+    subject { distribution.probability { |n| n >= 4 } }
+    it { is_expected.to eq(0.984375) }
+  end
 end

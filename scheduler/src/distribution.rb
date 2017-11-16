@@ -12,6 +12,12 @@ class Distribution
     parsed_data.inject :+
   end
 
+  def probability &block
+    parsed_data.select.with_index { |paths, total|
+      block.call(total)
+    }.inject(:+).to_f / outcomes.to_f
+  end
+
   def probability_of(total)
     paths_to(total).to_f / outcomes.to_f
   end
