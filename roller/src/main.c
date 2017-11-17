@@ -27,8 +27,9 @@ int main(int argc, char *argv[]) {
   }
 
   int max_total = dice_count * dice_sides;
-  int results[max_total + 2];
-  for (i = 0; i < max_total; i++) {
+  int results_length = (max_total + 1);
+  int *results = (int *) malloc(sizeof(int) * results_length);
+  for (i = 0; i < results_length; i++) {
     results[i] = 0;
   }
 
@@ -56,9 +57,11 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  for (i = 0; i <= max_total; i++) {
+  for (i = 0; i < results_length; i++) {
     printf("%d\n", results[i]);
   }
+
+  free(results);
 
   return 0;
 }
