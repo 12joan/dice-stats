@@ -7,6 +7,10 @@ if defined? RSpec
   task :test => :spec
 end
 
+task :console do 
+  ruby File.join("src", "console.rb")
+end
+
 task :server do 
   ruby File.join("src", "server.rb")
 end
