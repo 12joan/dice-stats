@@ -6,3 +6,7 @@ if defined? RSpec
   end
   task :test => :spec
 end
+
+task :server do 
+  ruby File.join("src", "server.rb")
+end
