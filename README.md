@@ -48,7 +48,7 @@ Finally, you need to create the database used for caching dice rolls.
 $ rake create_db
 ```
 
-This creates a [sqlite3](https://sqlite.org) database with a table for storing caches. Keeping this table full of frequent rolls is very important. The rake task `rake fill_cache` will keep running and caching the results of increasing numbers of dice with 4, 6, 8, 10 and 12 sides.
+This creates a [sqlite3](https://sqlite.org) database with a table for storing caches. Keeping this table full of frequent rolls is very important. The rake task `rake fill_cache` will keep running and caching the results of increasing numbers of dice with 6 sides.
 
 ```
 $ rake fill_cache
