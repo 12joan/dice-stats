@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
   }
 
   int max_total = dice_count * dice_sides;
-  int results[max_total];
+  int results[max_total + 2];
   for (i = 0; i < max_total; i++) {
     results[i] = 0;
   }
