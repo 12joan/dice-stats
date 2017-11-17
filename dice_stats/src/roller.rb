@@ -8,7 +8,7 @@ module Roller
   private
 
   def self.bin_path
-    File.join(__dir__, "..", "bin", "rollpaths")
+    File.join(__dir__, "..", "..", "roller", "bin", "rollpaths")
   end
 end
 
