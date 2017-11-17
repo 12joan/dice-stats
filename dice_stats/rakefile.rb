@@ -10,3 +10,7 @@ end
 task :server do 
   ruby File.join("src", "server.rb")
 end
+
+task :fill_cache do
+  ruby File.join("src", "cache_filler.rb")
+end
