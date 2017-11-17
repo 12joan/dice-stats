@@ -2,6 +2,8 @@
 #include <stdlib.h>
 
 int main(int argc, char *argv[]) {
+  int i;
+
   if (argc < 3) {
     printf("missing argument(s)\n");
     return 1;
@@ -20,13 +22,13 @@ int main(int argc, char *argv[]) {
   }
 
   int rolls[dice_count];
-  for (int i = 0; i < dice_count; i++) {
+  for (i = 0; i < dice_count; i++) {
     rolls[i] = 1;
   }
 
   int max_total = dice_count * dice_sides;
   int results[max_total];
-  for (int i = 0; i < max_total; i++) {
+  for (i = 0; i < max_total; i++) {
     results[i] = 0;
   }
 
@@ -35,14 +37,14 @@ int main(int argc, char *argv[]) {
   rolling = 1;
   while (rolling) {
     total = 0;
-    for (int i = 0; i < dice_count; i++) {
+    for (i = 0; i < dice_count; i++) {
       total += rolls[i];
     }
     
     results[total]++;
 
     rolls[0]++;
-    for (int i = 0; i < dice_count; i++) {
+    for (i = 0; i < dice_count; i++) {
       if (rolls[i] > dice_sides) {
         rolls[i] = 1;
         if (i == dice_count - 1) {
@@ -54,7 +56,7 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  for (int i = 0; i <= max_total; i++) {
+  for (i = 0; i <= max_total; i++) {
     printf("%d\n", results[i]);
   }
 
