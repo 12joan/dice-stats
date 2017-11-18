@@ -78,7 +78,7 @@ Alternatively, you can start the dice console using `rake console`, and interact
 
 You can also turn your computer (or a nearby [Raspberry Pi](https://www.raspberrypi.org)) into a dice server by running `rake server`. You can then point a [TCP client](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) at it on port 8000 and request probabilities in the same way.
 
-With both of these methods, users cannot request more than ten dice, or die rolls with more than twenty sides. You can change or remove this limitation by editing the `src/text_interface.rb` file.
+With both of these methods, users cannot request uncached rolls more complex than 10d6, where complexity is assumed to be directly proportional to sides to the power of number of dice. You can change or remove this limitation by editing the `src/text_interface.rb` file.
 
 ## Authors
 

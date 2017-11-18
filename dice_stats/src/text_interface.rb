@@ -9,8 +9,11 @@ module TextInterface
     comparison = data[3]      || (return invalid_input_message)
     target_val = data[4].to_i || (return invalid_input_message)
 
-    if dice_count > 10 or dice_sides > 20 then
-      return "too many possible outcomes; cannot process"
+    cached = CacheDb.cache_set(Cache, CacheSet).exists?([dice_count, dice_sides])
+    complexity = dice_sides ** dice_count
+
+    if complexity > 61000000 and (not cached) then
+      return "calculation too complex"
     end
 
     operation = case comparison
