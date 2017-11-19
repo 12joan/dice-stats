@@ -28,12 +28,12 @@ int main(int argc, char *argv[]) {
 
   int max_total = dice_count * dice_sides;
   int results_length = (max_total + 1);
-  int *results = (int *) malloc(sizeof(int) * results_length);
+  unsigned long *results = (unsigned long *) malloc(sizeof(unsigned long) * results_length);
   for (i = 0; i < results_length; i++) {
     results[i] = 0;
   }
 
-  int total;
+  unsigned long total;
   int rolling;
   rolling = 1;
   while (rolling) {
@@ -58,7 +58,7 @@ int main(int argc, char *argv[]) {
   }
 
   for (i = 0; i < results_length; i++) {
-    printf("%d\n", results[i]);
+    printf("%lu\n", results[i]);
   }
 
   free(results);
