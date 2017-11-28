@@ -2,7 +2,7 @@
 
 This is a tool for finding the probabilities of each desired outcome of a dice roll. For example, what is the probability of rolling exactly 17 from [5d6](https://en.wikipedia.org/wiki/Dice_notation)? According to this program, it's about one in ten. It can be extremely useful to know things like this in many tabletop games, such as Dungeons and Dragons: what is the probability of surviving a 50 ft. fall with only 17 hit points remaining?
 
-Why would you want a computer to do this for you? Think about how you could work it out by hand. You could draw a tree diagram for 1d6 with six branches. On the end of each branch, you could draw another six branches... and another six branches on each new end... and another... and another... and one more lot of six. That's 7776 branch segments in total! Or, you could let a computer do it in milliseconds.
+Why would you want a computer to do this for you? Think about how you could work it out by hand. You could draw a tree diagram for 1d6 with six branches. On the end of each branch, you could draw another six branches... and another six branches on each new end... and another... and another... and one more lot of six. That's 9330 branch segments in total! Or, you could let a computer do it in milliseconds.
 
 ## Getting Started
 
