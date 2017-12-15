@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
+#include <inttypes.h>
 
 int main(int argc, char *argv[]) {
   int i;
@@ -28,12 +30,13 @@ int main(int argc, char *argv[]) {
 
   int max_total = dice_count * dice_sides;
   int results_length = (max_total + 1);
-  unsigned long *results = (unsigned long *) malloc(sizeof(unsigned long) * results_length);
+  uint64_t *results = (uint64_t *) malloc(sizeof(uint64_t) * results_length);
+  uint64_t inc = 1;
   for (i = 0; i < results_length; i++) {
     results[i] = 0;
   }
 
-  unsigned long total;
+  uint64_t total;
   int rolling;
   rolling = 1;
   while (rolling) {
@@ -42,7 +45,7 @@ int main(int argc, char *argv[]) {
       total += rolls[i];
     }
     
-    results[total]++;
+    results[total] += inc;
 
     rolls[0]++;
     for (i = 0; i < dice_count; i++) {
@@ -58,7 +61,7 @@ int main(int argc, char *argv[]) {
   }
 
   for (i = 0; i < results_length; i++) {
-    printf("%lu\n", results[i]);
+    printf("%" PRIu64 "\n", results[i]);
   }
 
   free(results);
